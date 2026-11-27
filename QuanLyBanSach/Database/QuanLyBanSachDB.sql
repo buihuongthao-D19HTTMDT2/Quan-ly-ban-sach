@@ -12,7 +12,7 @@ CREATE TABLE TaiKhoan
     MatKhau NVARCHAR(255) NOT NULL,
     HoTen NVARCHAR(100) NOT NULL,
     VaiTro NVARCHAR(30) NOT NULL
-        CHECK (VaiTro IN (N'Qu?n l�', N'Nh�n vi�n')),
+        CHECK (VaiTro IN (N'Quản lý', N'Nhân viên')),
     TrangThai BIT NOT NULL DEFAULT 1
 );
 GO
@@ -56,36 +56,41 @@ CREATE TABLE ChiTietHoaDon
 GO
 
 -- 5. TAO TAI KHOAN QUAN LY BAN DAU VA TAI KHOAN NHAN VIEN
+
 INSERT INTO TaiKhoan
     (TenDangNhap, MatKhau, HoTen, VaiTro)
 VALUES
-    (N'admin', N'Admin@123', N'Qu?n l� c?a h�ng', N'Qu?n l�');
+    (N'admin', N'Admin@123', N'Quản lý cửa hàng', N'Quản lý');
 GO
 
-INSERT INTO TaiKhoan (TenDangNhap, MatKhau, HoTen, VaiTro, TrangThai)
-VALUES 
- ('nhanvien01', '123456', N'Nguy?n Ph??ng Trang', N'Nh�n vi�n', 1);
- ('nhanvien02', '123456', N'B�i H??ng Th?o', N'Nh�n vi�n', 1);
- ('nhanvien03', '123456', N'Ph?m Trang Linh', N'Nh�n vi�n', 1);
- ('nhanvien04', '123456', N'L� Th? Ph??ng Thanh', N'Nh�n vi�n', 1);
+INSERT INTO TaiKhoan
+    (TenDangNhap, MatKhau, HoTen, VaiTro, TrangThai)
+VALUES
+    ('nhanvien01', '123456', N'Nguyễn Phương Trang', N'Nhân viên bán sách', 1),
+    ('nhanvien02', '123456', N'Bùi Hương Thảo', N'Nhân viên bán sách', 1),
+    ('nhanvien03', '123456', N'Phạm Trang Linh', N'Nhân viên bán sách', 1),
+    ('nhanvien04', '123456', N'Lê Thị Phương Thanh', N'Nhân viên bán sách', 1);
 GO
+
 -- 6. DU LIEU SACH BAN DAU
+
 INSERT INTO Sach
     (TenSach, TacGia, NhaXuatBan, TheLoai, DonGia, SoLuongTon)
 VALUES
-(N'D? M�n Phi�u L?u K�', N'T� Ho�i', N'Kim ??ng', N'Truy?n thi?u nhi', 55000, 30),
-(N'Cho T�i Xin M?t V� ?i Tu?i Th?', N'Nguy?n Nh?t �nh', N'Tr?', N'Truy?n d�i', 80000, 25),
-(N'M?t Bi?c', N'Nguy?n Nh?t �nh', N'Tr?', N'Ti?u thuy?t', 110000, 20),
-(N'T�i Th?y Hoa V�ng Tr�n C? Xanh', N'Nguy?n Nh?t �nh', N'Tr?', N'Ti?u thuy?t', 95000, 18),
-(N'??c Nh�n T�m', N'Dale Carnegie', N'T?ng h?p TP.HCM', N'K? n?ng s?ng', 86000, 15),
-(N'Nh� Gi? Kim', N'Paulo Coelho', N'V?n h?c', N'Ti?u thuy?t', 79000, 22),
-(N'Tu?i Tr? ?�ng Gi� Bao Nhi�u', N'Rosie Nguy?n', N'H?i Nh� V?n', N'K? n?ng s?ng', 75000, 20),
-(N'L?p Tr�nh C C? B?n', N'Nguy?n V?n A', N'Gi�o d?c', N'Tin h?c', 120000, 12),
-(N'Tin H?c ??i C??ng', N'Nguy?n Thanh B�nh', N'Gi�o d?c', N'Tin h?c', 95000, 16),
-(N'Gi�o Tr�nh C? S? D? Li?u', N'Nguy?n Tu?', N'Gi�o d?c', N'Gi�o tr�nh', 105000, 14);
+(N'Dế Mèn Phiêu Lưu Ký', N'Tô Hoài', N'Kim Đồng', N'Truyện thiếu nhi', 55000, 30),
+(N'Cho Tôi Xin Một Vé Đi Tuổi Thơ', N'Nguyễn Nhật Ánh', N'Trẻ', N'Truyện dài', 80000, 25),
+(N'Mắt Biếc', N'Nguyễn Nhật Ánh', N'Trẻ', N'Tiểu thuyết', 110000, 20),
+(N'Tôi Thấy Hoa Vàng Trên Cỏ Xanh', N'Nguyễn Nhật Ánh', N'Trẻ', N'Tiểu thuyết', 95000, 18),
+(N'Đắc Nhân Tâm', N'Dale Carnegie', N'Tổng hợp TP.HCM', N'Kỹ năng sống', 86000, 15),
+(N'Nhà Giả Kim', N'Paulo Coelho', N'Văn học', N'Tiểu thuyết', 79000, 22),
+(N'Tuổi Trẻ Đáng Giá Bao Nhiêu', N'Rosie Nguyễn', N'Hội Nhà Văn', N'Kỹ năng sống', 75000, 20),
+(N'Lập Trình C Cơ Bản', N'Nguyễn Văn A', N'Giáo dục', N'Tin học', 120000, 12),
+(N'Tin Học Đại Cương', N'Nguyễn Thanh Bình', N'Giáo dục', N'Tin học', 95000, 16),
+(N'Giáo Trình Cơ Sở Dữ Liệu', N'Nguyễn Tuấn', N'Giáo dục', N'Giáo trình', 105000, 14);
 GO
 
 -- 7. KIEM TRA DU LIEU
+
 SELECT * FROM TaiKhoan;
 SELECT * FROM Sach;
 GO
